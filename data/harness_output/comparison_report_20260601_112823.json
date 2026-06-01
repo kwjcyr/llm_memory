@@ -1,0 +1,107 @@
+{
+  "before_score": 0.0,
+  "after_score": 0.0,
+  "improvement": 0.0,
+  "improvement_rate": Infinity,
+  "before_results": [
+    {
+      "question": "What activity did Caroline used to do with her dad?",
+      "ground_truth": "Horseback riding",
+      "predicted": "I don't have that information.",
+      "score": 0.0
+    },
+    {
+      "question": "What advice does Caroline give for getting started with adoption?",
+      "ground_truth": "Do research, find an adoption agency or lawyer, gather necessary documents, and prepare emotionally.",
+      "predicted": "I don't have that information.",
+      "score": 0.0
+    },
+    {
+      "question": "What events has Caroline participated in to help children?",
+      "ground_truth": "Mentoring program, school speech",
+      "predicted": "I don't have that information.",
+      "score": 0.0
+    },
+    {
+      "question": "What was the poetry reading that Caroline attended about?",
+      "ground_truth": "It was a transgender poetry reading where transgender people shared their stories.",
+      "predicted": "I don't have that information.",
+      "score": 0.0
+    },
+    {
+      "question": "What does Caroline's necklace symbolize?",
+      "ground_truth": "love, faith, and strength",
+      "predicted": "No information found in memories",
+      "score": 0.0
+    },
+    {
+      "question": "Would Caroline want to move back to her home country soon?",
+      "ground_truth": "No; she's in the process of adopting children.",
+      "predicted": "I don't have that information.",
+      "score": 0.0
+    },
+    {
+      "question": "What would Caroline's political leaning likely be?",
+      "ground_truth": "Liberal",
+      "predicted": "No information found in memories",
+      "score": 0.0
+    },
+    {
+      "question": "When did Caroline meet up with her friends, family, and mentors?",
+      "ground_truth": "The week before 9 June 2023",
+      "predicted": "I don't have that information.",
+      "score": 0.0
+    }
+  ],
+  "after_results": [
+    {
+      "question": "What activity did Caroline used to do with her dad?",
+      "ground_truth": "Horseback riding",
+      "predicted": "I don't have that information.",
+      "score": 0.0
+    },
+    {
+      "question": "What advice does Caroline give for getting started with adoption?",
+      "ground_truth": "Do research, find an adoption agency or lawyer, gather necessary documents, and prepare emotionally.",
+      "predicted": "I don't have that information.",
+      "score": 0.0
+    },
+    {
+      "question": "What events has Caroline participated in to help children?",
+      "ground_truth": "Mentoring program, school speech",
+      "predicted": "I don't have that information.",
+      "score": 0.0
+    },
+    {
+      "question": "What was the poetry reading that Caroline attended about?",
+      "ground_truth": "It was a transgender poetry reading where transgender people shared their stories.",
+      "predicted": "I don't have that information.",
+      "score": 0.0
+    },
+    {
+      "question": "What does Caroline's necklace symbolize?",
+      "ground_truth": "love, faith, and strength",
+      "predicted": "No information found in memories",
+      "score": 0.0
+    },
+    {
+      "question": "Would Caroline want to move back to her home country soon?",
+      "ground_truth": "No; she's in the process of adopting children.",
+      "predicted": "I don't have that information.",
+      "score": 0.0
+    },
+    {
+      "question": "What would Caroline's political leaning likely be?",
+      "ground_truth": "Liberal",
+      "predicted": "No information found in memories",
+      "score": 0.0
+    },
+    {
+      "question": "When did Caroline meet up with her friends, family, and mentors?",
+      "ground_truth": "The week before 9 June 2023",
+      "predicted": "I don't have that information.",
+      "score": 0.0
+    }
+  ],
+  "best_addition": ""
+}

@@ -32,9 +32,9 @@ def load_effective_memories(file_path: str) -> List[Dict[str, Any]]:
     return memories
 
 
-def search_relevant_memories(question: str, memories: List[Dict[str, Any]], top_k: int = 3) -> List[Dict[str, Any]]:
+def search_relevant_memories(question: str, memories: List[Dict[str, Any]], top_k: int = 5) -> List[Dict[str, Any]]:
     """
-    搜索与问题相关的记忆（简单的关键词匹配）
+    搜索与问题相关的记忆（使用更智能的关键词扩展）
 
     Args:
         question: 用户问题
@@ -44,8 +44,22 @@ def search_relevant_memories(question: str, memories: List[Dict[str, Any]], top_
     Returns:
         相关记忆列表
     """
-    # 简单的关键词匹配（可以改进为使用 embedding 向量检索）
+    # 扩展关键词（同义词和相关词）
     question_keywords = set(question.lower().split())
+
+    # 添加同义词扩展
+    keyword_expansions = {
+        'education': ['education', 'study', 'learning', 'degree', 'certification', 'training'],
+        'fields': ['fields', 'area', 'subject', 'discipline', 'major'],
+        'pursue': ['pursue', 'study', 'learn', 'get', 'obtain', 'certification'],
+        'psychology': ['psychology', 'mental health', 'counseling', 'therapist'],
+        'counseling': ['counseling', 'counselor', 'therapy', 'therapist', 'psychology']
+    }
+
+    expanded_keywords = set(question_keywords)
+    for keyword in question_keywords:
+        if keyword in keyword_expansions:
+            expanded_keywords.update(keyword_expansions[keyword])
 
     scored_memories = []
 
@@ -54,22 +68,27 @@ def search_relevant_memories(question: str, memories: List[Dict[str, Any]], top_
 
         # 在 topic 中搜索
         topic = memory.get('topic', '').lower()
-        if any(keyword in topic for keyword in question_keywords):
+        if any(keyword in topic for keyword in expanded_keywords):
             score += 3
 
         # 在 summary 中搜索
         summary = memory.get('summary', '').lower()
-        if any(keyword in summary for keyword in question_keywords):
+        if any(keyword in summary for keyword in expanded_keywords):
+            score += 2
+
+        # 在 facts 中搜索
+        facts = ' '.join(memory.get('facts', [])).lower()
+        if any(keyword in facts for keyword in expanded_keywords):
             score += 2
 
         # 在 tags 中搜索
-        tags = memory.get('tags', [])
-        if any(keyword.lower() in tag.lower() for tag in tags for keyword in question_keywords):
+        tags = ' '.join(memory.get('tags', [])).lower()
+        if any(keyword in tags for keyword in expanded_keywords):
             score += 1
 
         # 在 original_text 中搜索
         original_text = memory.get('original_text', '').lower()
-        if any(keyword in original_text for keyword in question_keywords):
+        if any(keyword in original_text for keyword in expanded_keywords):
             score += 1
 
         if score > 0:
@@ -120,6 +139,11 @@ def call_llm_for_qa(question: str, relevant_memories: List[Dict[str, Any]], frid
 
 请根据上述记忆信息，准确、简洁地回答用户的问题。如果记忆中没有相关信息，请诚实地说明。
 
+要求：
+1. 直接回答具体领域或专业名称
+2. 如果提到多个领域，用逗号分隔
+3. 不要添加多余的解释
+
 答案："""
 
     # 调用 API
@@ -159,7 +183,7 @@ def call_llm_for_qa(question: str, relevant_memories: List[Dict[str, Any]], frid
 def answer_question(question: str,
                    file_path: str = '/Users/kwjcyr/data/llm_memory/data/effective_memories.txt',
                    friday_app_id: str = '1980915965710716958',
-                   top_k: int = 3) -> str:
+                   top_k: int = 5) -> str:
     """
     主函数：基于 effective memory 回答问题
 
@@ -206,7 +230,7 @@ def answer_question(question: str,
 
 if __name__ == '__main__':
     # 示例问题
-    question = "When did Caroline go to the LGBTQ support group?"
+    question = "What fields would Caroline be likely to pursue in her education?"
 
     # 回答问题
     answer = answer_question(question)

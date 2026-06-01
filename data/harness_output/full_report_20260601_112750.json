@@ -1,0 +1,31 @@
+{
+  "timestamp": "20260601_112750",
+  "steps": {
+    "step1_import": {
+      "success": true,
+      "imported_count": 214,
+      "skipped": true
+    },
+    "step2_evaluate": {
+      "success": false,
+      "error": "'int' object has no attribute 'lower'"
+    },
+    "step3_compare": {
+      "success": false,
+      "error": "'int' object has no attribute 'lower'"
+    },
+    "step4_save": {
+      "success": true,
+      "output_path": "/Users/kwjcyr/data/llm_memory/data/harness_output/effective_memories_20260601_112750.txt",
+      "num_memories": 1,
+      "best_addition": ""
+    }
+  },
+  "summary": {
+    "total_steps": 4,
+    "successful_steps": 2,
+    "failed_steps": 2,
+    "effective_memories_count": 1,
+    "status": "PARTIAL_SUCCESS"
+  }
+}

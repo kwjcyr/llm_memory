@@ -1,0 +1,107 @@
+{
+  "before_score": 0.03125,
+  "after_score": 0.046875,
+  "improvement": 0.015625,
+  "improvement_rate": 50.0,
+  "before_results": [
+    {
+      "question": "Why did Caroline choose the adoption agency?",
+      "ground_truth": "because of their inclusivity and support for LGBTQ+ individuals",
+      "predicted": "I don't have that information.",
+      "score": 0.0
+    },
+    {
+      "question": "What motivated Caroline to pursue counseling?",
+      "ground_truth": "her own journey and the support she received, and how counseling improved her life",
+      "predicted": "The memories do not mention Caroline pursuing counseling or provide any information about her motivations for doing so. Therefore, I don't have that information.",
+      "score": 0.25
+    },
+    {
+      "question": "What is Caroline excited about in the adoption process?",
+      "ground_truth": "creating a family for kids who need one",
+      "predicted": "I don't have that information.",
+      "score": 0.0
+    },
+    {
+      "question": "What painting did Melanie show to Caroline on October 13, 2023?",
+      "ground_truth": "A painting inspired by sunsets with a pink sky.",
+      "predicted": "I don't have that information.",
+      "score": 0.0
+    },
+    {
+      "question": "What kind of painting did Caroline share with Melanie on October 13, 2023?",
+      "ground_truth": "An abstract painting with blue streaks on a wall.",
+      "predicted": "I don't have that information.",
+      "score": 0.0
+    },
+    {
+      "question": "Would Caroline be considered religious?",
+      "ground_truth": "Somewhat, but not extremely religious",
+      "predicted": "I don't have that information.",
+      "score": 0.0
+    },
+    {
+      "question": "What do sunflowers represent according to Caroline?",
+      "ground_truth": "warmth and happiness",
+      "predicted": "I don't have that information.",
+      "score": 0.0
+    },
+    {
+      "question": "What did Caroline find in her neighborhood during her walk?",
+      "ground_truth": "a rainbow sidewalk",
+      "predicted": "I don't have that information.",
+      "score": 0.0
+    }
+  ],
+  "after_results": [
+    {
+      "question": "Why did Caroline choose the adoption agency?",
+      "ground_truth": "because of their inclusivity and support for LGBTQ+ individuals",
+      "predicted": "I don't have that information.",
+      "score": 0.0
+    },
+    {
+      "question": "What motivated Caroline to pursue counseling?",
+      "ground_truth": "her own journey and the support she received, and how counseling improved her life",
+      "predicted": "The extracted memories do not mention Caroline pursuing counseling or provide any information about her motivations for doing so. Therefore, I don't have that information.",
+      "score": 0.25
+    },
+    {
+      "question": "What is Caroline excited about in the adoption process?",
+      "ground_truth": "creating a family for kids who need one",
+      "predicted": "The memories do not mention Caroline being in or excited about the adoption process. They only state her strong desire to become a mother someday and view motherhood as central to her future, but no details about adoption are provided.  \n\nAnswer: I don't have that information.",
+      "score": 0.125
+    },
+    {
+      "question": "What painting did Melanie show to Caroline on October 13, 2023?",
+      "ground_truth": "A painting inspired by sunsets with a pink sky.",
+      "predicted": "I don't have that information.",
+      "score": 0.0
+    },
+    {
+      "question": "What kind of painting did Caroline share with Melanie on October 13, 2023?",
+      "ground_truth": "An abstract painting with blue streaks on a wall.",
+      "predicted": "I don't have that information.",
+      "score": 0.0
+    },
+    {
+      "question": "Would Caroline be considered religious?",
+      "ground_truth": "Somewhat, but not extremely religious",
+      "predicted": "I don't have that information.",
+      "score": 0.0
+    },
+    {
+      "question": "What do sunflowers represent according to Caroline?",
+      "ground_truth": "warmth and happiness",
+      "predicted": "I don't have that information.",
+      "score": 0.0
+    },
+    {
+      "question": "What did Caroline find in her neighborhood during her walk?",
+      "ground_truth": "a rainbow sidewalk",
+      "predicted": "I don't have that information.",
+      "score": 0.0
+    }
+  ],
+  "best_addition": ""
+}
