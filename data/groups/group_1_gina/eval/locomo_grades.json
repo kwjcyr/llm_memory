@@ -1,0 +1,48 @@
+{
+    "overall_scores": {
+        "total_questions": 81,
+        "llm_judge_score": 0.24691358024691357,
+        "lexical": {
+            "f1": 0.08822313683624061,
+            "bleu1": 0.09727203597976543
+        }
+    },
+    "category_scores": {
+        "2": {
+            "category_name": "Temporal reasoning",
+            "total_questions": 26,
+            "llm_judge_score": 0.15384615384615385,
+            "lexical": {
+                "f1": 0.038461538461538464,
+                "bleu1": 0.038461538461538464
+            }
+        },
+        "4": {
+            "category_name": "Single hop",
+            "total_questions": 44,
+            "llm_judge_score": 0.2727272727272727,
+            "lexical": {
+                "f1": 0.08033128994391547,
+                "bleu1": 0.08549489459815546
+            }
+        },
+        "1": {
+            "category_name": "Multi hop",
+            "total_questions": 11,
+            "llm_judge_score": 0.36363636363636365,
+            "lexical": {
+                "f1": 0.2374088478366553,
+                "bleu1": 0.2833872320038328
+            }
+        },
+        "5": {
+            "category_name": "Adversarial",
+            "total_questions": 24,
+            "llm_judge_score": 0.9166666666666666,
+            "lexical": {
+                "f1": 0.0,
+                "bleu1": 0.0
+            }
+        }
+    }
+}

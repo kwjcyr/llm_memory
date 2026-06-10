@@ -1,0 +1,1369 @@
+{
+  "locomo_group_2": [
+    {
+      "question": "When Jon has lost his job as a banker?",
+      "category": 2,
+      "golden_answer": "19 January, 2023",
+      "generated_answer": "2023-01-19",
+      "llm_judgments": {
+        "judgment_1": true
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "When Gina has lost her job at Door Dash?",
+      "category": 2,
+      "golden_answer": "January, 2023",
+      "generated_answer": "this month",
+      "llm_judgments": {
+        "judgment_1": false
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "How do Jon and Gina both like to destress?",
+      "category": 4,
+      "golden_answer": "by dancing",
+      "generated_answer": "dance",
+      "llm_judgments": {
+        "judgment_1": true
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "What do Jon and Gina both have in common?",
+      "category": 1,
+      "golden_answer": "They lost their jobs and decided to start their own businesses.",
+      "generated_answer": "dance, contemporary dance, entrepreneurship, stress relief, self-expression, creativity, resilience, mutual support",
+      "llm_judgments": {
+        "judgment_1": true
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "Why did Jon decide to start his dance studio?",
+      "category": 4,
+      "golden_answer": "He lost his job and decided to start his own business to share his passion.",
+      "generated_answer": "dance",
+      "llm_judgments": {
+        "judgment_1": false
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "What Jon thinks the ideal dance studio should look like?",
+      "category": 1,
+      "golden_answer": "By the water, with natural light and Marley flooring",
+      "generated_answer": "ocean view, yoga mats, Marley flooring, natural light",
+      "llm_judgments": {
+        "judgment_1": true
+      },
+      "nlp_metrics": {
+        "f1": 0.47058823529411764,
+        "bleu1": 0.5
+      }
+    },
+    {
+      "question": "When is Jon's group performing at a festival?",
+      "category": 2,
+      "golden_answer": "February, 2023",
+      "generated_answer": "next month",
+      "llm_judgments": {
+        "judgment_1": false
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "When did Gina launch an ad campaign for her store?",
+      "category": 2,
+      "golden_answer": "29 January, 2023",
+      "generated_answer": "2023-01-29T14:32:00",
+      "llm_judgments": {
+        "judgment_1": true
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "When was Jon in Paris?",
+      "category": 2,
+      "golden_answer": "28 January 2023",
+      "generated_answer": "2023-01-28",
+      "llm_judgments": {
+        "judgment_1": true
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "Which city have both Jean and John visited?",
+      "category": 1,
+      "golden_answer": "Rome",
+      "generated_answer": "Paris, Rome",
+      "llm_judgments": {
+        "judgment_1": true
+      },
+      "nlp_metrics": {
+        "f1": 0.6666666666666666,
+        "bleu1": 0.5
+      }
+    },
+    {
+      "question": "When did Gina team up with a local artist for some cool designs?",
+      "category": 2,
+      "golden_answer": "February, 2023",
+      "generated_answer": "fashion design",
+      "llm_judgments": {
+        "judgment_1": false
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "When did Gina get her tattoo?",
+      "category": 2,
+      "golden_answer": "A few years ago",
+      "generated_answer": "a few years ago",
+      "llm_judgments": {
+        "judgment_1": true
+      },
+      "nlp_metrics": {
+        "f1": 1.0,
+        "bleu1": 1.0
+      }
+    },
+    {
+      "question": "When did Jon start to go to the gym?",
+      "category": 2,
+      "golden_answer": "March, 2023",
+      "generated_answer": "记忆中没有相关信息",
+      "llm_judgments": {
+        "judgment_1": false
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "When did Gina open her online clothing store?",
+      "category": 2,
+      "golden_answer": "16 March, 2023",
+      "generated_answer": "2023-02-08T09:32:00",
+      "llm_judgments": {
+        "judgment_1": false
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "When did Jon start expanding his studio's social media presence?",
+      "category": 2,
+      "golden_answer": "April, 2023",
+      "generated_answer": "记忆中没有相关信息",
+      "llm_judgments": {
+        "judgment_1": false
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "When did Jon host a dance competition?",
+      "category": 2,
+      "golden_answer": "May, 2023",
+      "generated_answer": "Jon did not host a dance competition; he participated in one and won first place with his crew last year.",
+      "llm_judgments": {
+        "judgment_1": false
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "When did Jon go to a fair to get more exposure for his dance studio?",
+      "category": 2,
+      "golden_answer": "24 April, 2023",
+      "generated_answer": "记忆中没有相关信息",
+      "llm_judgments": {
+        "judgment_1": false
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "Why did Gina decide to start her own clothing store?",
+      "category": 1,
+      "golden_answer": "She always loved fashion trends and finding unique pieces and she lost her job so decided it was time to start her own business.",
+      "generated_answer": "fashion design, entrepreneurship",
+      "llm_judgments": {
+        "judgment_1": false
+      },
+      "nlp_metrics": {
+        "f1": 0.08333333333333333,
+        "bleu1": 0.3333333333333333
+      }
+    },
+    {
+      "question": "Do Jon and Gina start businesses out of what they love?",
+      "category": 1,
+      "golden_answer": "Yes",
+      "generated_answer": "dance, fashion",
+      "llm_judgments": {
+        "judgment_1": false
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "When did Gina interview for a design internship?",
+      "category": 2,
+      "golden_answer": "10 May, 2023",
+      "generated_answer": "记忆中没有相关信息",
+      "llm_judgments": {
+        "judgment_1": false
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "When did Gina get accepted for the design internship?",
+      "category": 2,
+      "golden_answer": "27 May, 2023",
+      "generated_answer": "记忆中没有相关信息",
+      "llm_judgments": {
+        "judgment_1": false
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "When did Jon start reading \"The Lean Startup\"?",
+      "category": 2,
+      "golden_answer": "May, 2023",
+      "generated_answer": "记忆中没有相关信息",
+      "llm_judgments": {
+        "judgment_1": false
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "When did Gina develop a video presentation to teach how to style her fashion pieces? ",
+      "category": 2,
+      "golden_answer": "June, 2023",
+      "generated_answer": "记忆中没有相关信息",
+      "llm_judgments": {
+        "judgment_1": false
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "How did Gina promote her clothes store?",
+      "category": 1,
+      "golden_answer": "worked with an artist to make unique fashion pieces, made limited-edition sweatshirts, got some new offers and promotions for online store, developed a video presentation showing how to style her pieces",
+      "generated_answer": "ad campaign",
+      "llm_judgments": {
+        "judgment_1": false
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "Which events has Jon participated in to promote his business venture?",
+      "category": 1,
+      "golden_answer": "fair, networking events, dance competition",
+      "generated_answer": "dance competition, festival",
+      "llm_judgments": {
+        "judgment_1": false
+      },
+      "nlp_metrics": {
+        "f1": 0.5,
+        "bleu1": 0.6666666666666666
+      }
+    },
+    {
+      "question": "What does Jon's dance studio offer?",
+      "category": 1,
+      "golden_answer": "one-on-one metoring and training to dancers,  workshops and classes to local schools and centers",
+      "generated_answer": "dance classes for all ages and levels, contemporary dance, hip-hop, choreography for festivals, dance studio space with Marley flooring, inclusive environment for self-expression",
+      "llm_judgments": {
+        "judgment_1": false
+      },
+      "nlp_metrics": {
+        "f1": 0.13333333333333333,
+        "bleu1": 0.08695652173913043
+      }
+    },
+    {
+      "question": "When did Jon receive mentorship to promote his venture?",
+      "category": 2,
+      "golden_answer": "15 June, 2023",
+      "generated_answer": "记忆中没有相关信息",
+      "llm_judgments": {
+        "judgment_1": false
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "Did Jon and Gina both participate in dance competitions?",
+      "category": 1,
+      "golden_answer": "Yes",
+      "generated_answer": "Yes, Jon and Gina both participated in dance competitions. Jon won first place in a local dance competition last year, and Gina won first place at a regional dance competition at age fifteen.",
+      "llm_judgments": {
+        "judgment_1": true
+      },
+      "nlp_metrics": {
+        "f1": 0.0909090909090909,
+        "bleu1": 0.030303030303030304
+      }
+    },
+    {
+      "question": "When was Jon in Rome?",
+      "category": 2,
+      "golden_answer": "June 2023",
+      "generated_answer": "Jon was not in Rome. The memory mentions that Jon visited Paris the day before the conversation on 2023-01-29, but there is no information about him being in Rome.",
+      "llm_judgments": {
+        "judgment_1": false
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "Which cities has Jon visited?",
+      "category": 1,
+      "golden_answer": "Paris, Rome",
+      "generated_answer": "Paris",
+      "llm_judgments": {
+        "judgment_1": false
+      },
+      "nlp_metrics": {
+        "f1": 0.6666666666666666,
+        "bleu1": 1.0
+      }
+    },
+    {
+      "question": "When Jon is planning to open his dance studio?",
+      "category": 2,
+      "golden_answer": "20 June, 2023",
+      "generated_answer": "Jon is planning to open his dance studio after losing his job as a banker, with active efforts to find a suitable location and secure Marley flooring for safety and performance. He aims to create a space for dancers of all levels to express themselves and grow, supported by Gina's encouragement.",
+      "llm_judgments": {
+        "judgment_1": false
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "How long did it take for Jon to open his studio?",
+      "category": 1,
+      "golden_answer": "six months",
+      "generated_answer": "记忆中没有相关信息",
+      "llm_judgments": {
+        "judgment_1": false
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "When did Gina design a limited collection of hoodies?",
+      "category": 2,
+      "golden_answer": "June 2023",
+      "generated_answer": "记忆中没有相关信息",
+      "llm_judgments": {
+        "judgment_1": false
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "When did Jon visit networking events for his store?",
+      "category": 2,
+      "golden_answer": "20 June, 2023",
+      "generated_answer": "记忆中没有相关信息",
+      "llm_judgments": {
+        "judgment_1": false
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "When did Gina start being recognized by fashion editors?",
+      "category": 2,
+      "golden_answer": "July 2023",
+      "generated_answer": "记忆中没有相关信息",
+      "llm_judgments": {
+        "judgment_1": false
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "When did Jon start learning marketing and analytics tools?",
+      "category": 2,
+      "golden_answer": "July, 2023",
+      "generated_answer": "记忆中没有相关信息",
+      "llm_judgments": {
+        "judgment_1": false
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "When did Jon and Gina decide to collaborate to create dance content?",
+      "category": 2,
+      "golden_answer": "21 July 2023",
+      "generated_answer": "记忆中没有相关信息",
+      "llm_judgments": {
+        "judgment_1": false
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "When did Gina mention Shia Labeouf?",
+      "category": 2,
+      "golden_answer": " 23 July, 2023",
+      "generated_answer": "记忆中没有相关信息。",
+      "llm_judgments": {
+        "judgment_1": false
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "When did Gina go to a dance class with a group of friends?",
+      "category": 2,
+      "golden_answer": "21 July 2023",
+      "generated_answer": "记忆中没有相关信息",
+      "llm_judgments": {
+        "judgment_1": false
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "What is Gina's favorite style of dance?",
+      "category": 4,
+      "golden_answer": "Contemporary",
+      "generated_answer": "记忆中没有相关信息",
+      "llm_judgments": {
+        "judgment_1": false
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "What is Jon's favorite style of dance?",
+      "category": 4,
+      "golden_answer": "Contemporary",
+      "generated_answer": "记忆中没有相关信息",
+      "llm_judgments": {
+        "judgment_1": false
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "What was Gina's favorite dancing memory?",
+      "category": 4,
+      "golden_answer": "Winning first place at a regionals dance competition",
+      "generated_answer": "记忆中没有相关信息",
+      "llm_judgments": {
+        "judgment_1": false
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "What kind of dance piece did Gina's team perform to win first place?",
+      "category": 4,
+      "golden_answer": "\"Finding Freedom\"",
+      "generated_answer": "contemporary",
+      "llm_judgments": {
+        "judgment_1": false
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "What do the dancers in the photo represent?",
+      "category": 4,
+      "golden_answer": "They are performing at the festival",
+      "generated_answer": "dance",
+      "llm_judgments": {
+        "judgment_1": false
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "What does Gina say about the dancers in the photo?",
+      "category": 4,
+      "golden_answer": "They look graceful",
+      "generated_answer": "The memory information does not provide any specific comments from Gina about the dancers in the photo.",
+      "llm_judgments": {
+        "judgment_1": false
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "What is Jon's attitude towards being part of the dance festival?",
+      "category": 4,
+      "golden_answer": "Glad",
+      "generated_answer": "Jon is excited and proud to be part of the dance festival, as he has been rehearsing with a small group and preparing choreography for it. He views the festival as an opportunity to showcase their hard work and skill, and he is looking forward to impressing the audience with their grace and performance.",
+      "llm_judgments": {
+        "judgment_1": true
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "What kind of flooring is Jon looking for in his dance studio?",
+      "category": 4,
+      "golden_answer": "Marley flooring",
+      "generated_answer": "Marley flooring",
+      "llm_judgments": {
+        "judgment_1": true
+      },
+      "nlp_metrics": {
+        "f1": 1.0,
+        "bleu1": 1.0
+      }
+    },
+    {
+      "question": "What did Gina find for her clothing store on 1 February, 2023?",
+      "category": 4,
+      "golden_answer": "The perfect spot for her store",
+      "generated_answer": "wholesaler",
+      "llm_judgments": {
+        "judgment_1": false
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "What did Gina design for her store?",
+      "category": 4,
+      "golden_answer": "the space, furniture, and decor",
+      "generated_answer": "clothing store",
+      "llm_judgments": {
+        "judgment_1": false
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "What did Gina want her customers to feel in her store?",
+      "category": 4,
+      "golden_answer": "cozy and comfortable",
+      "generated_answer": "cool oasis",
+      "llm_judgments": {
+        "judgment_1": false
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "What did Jon say about Gina's progress with her store?",
+      "category": 4,
+      "golden_answer": "hard work's paying off",
+      "generated_answer": "Jon said that Gina's progress with her store is awesome and that she is doing great. He expressed his support and belief in her ability to succeed, encouraging her to keep going and stay positive.",
+      "llm_judgments": {
+        "judgment_1": true
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "What made Gina choose the furniture and decor for her store?",
+      "category": 4,
+      "golden_answer": "personal style and customer comfort",
+      "generated_answer": "Gina chose the furniture and decor for her store to create a comfortable and inviting space that reflects her personal style and provides customers with a unique shopping experience. She selected furniture that is both stylish and comfortable, and added a glamorous chandelier to enhance the store's aesthetic.",
+      "llm_judgments": {
+        "judgment_1": true
+      },
+      "nlp_metrics": {
+        "f1": 0.14634146341463414,
+        "bleu1": 0.0625
+      }
+    },
+    {
+      "question": "What did Jon say about creating a special experience for customers?",
+      "category": 4,
+      "golden_answer": "It's the key to making them feel welcome and coming back",
+      "generated_answer": "Jon did not mention creating a special experience for customers.",
+      "llm_judgments": {
+        "judgment_1": false
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "What did Gina say about creating an experience for her customers?",
+      "category": 4,
+      "golden_answer": "making them want to come back",
+      "generated_answer": "cool oasis",
+      "llm_judgments": {
+        "judgment_1": false
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "How is Gina's store doing?",
+      "category": 4,
+      "golden_answer": "The store is doing great.",
+      "generated_answer": "Gina's store is progressing well. She recently launched an ad campaign to grow her business and shared a photo of the store filled with a variety of clothes on display. She has designed the store to be cozy and inviting, with stylish and comfortable furniture and a glamorous chandelier. Additionally, she received a positive response from a wholesaler, enabling her to expand her clothing store and get closer to her customers. Gina also created a limited edition line of clothing, including a camouflage-print hoodie, and acquired new unique pieces for her store.",
+      "llm_judgments": {
+        "judgment_1": true
+      },
+      "nlp_metrics": {
+        "f1": 0.08823529411764705,
+        "bleu1": 0.03260869565217391
+      }
+    },
+    {
+      "question": "What does Gina's tattoo symbolize?",
+      "category": 4,
+      "golden_answer": "Freedom and expressing herself through dance",
+      "generated_answer": "freedom—dancing without worrying about others' opinions",
+      "llm_judgments": {
+        "judgment_1": true
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "What did Jon and Gina compare their entrepreneurial journeys to?",
+      "category": 4,
+      "golden_answer": "dancing together and supporting each other",
+      "generated_answer": "dance studio, clothing store",
+      "llm_judgments": {
+        "judgment_1": false
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "What advice does Gina give to Jon about running a successful business?",
+      "category": 4,
+      "golden_answer": "build relationships with customers, create a strong brand image, stay positive",
+      "generated_answer": "perseverance, self-belief, taking breaks, self-care",
+      "llm_judgments": {
+        "judgment_1": false
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "Why did Jon shut down his bank account?",
+      "category": 4,
+      "golden_answer": "for his business",
+      "generated_answer": "记忆中没有相关信息",
+      "llm_judgments": {
+        "judgment_1": false
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "Why did Gina combine her clothing business with dance?",
+      "category": 4,
+      "golden_answer": "she is passionate about dance and fashion",
+      "generated_answer": "记忆中没有相关信息",
+      "llm_judgments": {
+        "judgment_1": false
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "What does Jon's dance make him?",
+      "category": 4,
+      "golden_answer": "happy",
+      "generated_answer": "happy place, self-expression",
+      "llm_judgments": {
+        "judgment_1": true
+      },
+      "nlp_metrics": {
+        "f1": 0.5,
+        "bleu1": 0.3333333333333333
+      }
+    },
+    {
+      "question": "What did Gina receive from a dance contest?",
+      "category": 4,
+      "golden_answer": "a trophy",
+      "generated_answer": "first place",
+      "llm_judgments": {
+        "judgment_1": true
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "How does Gina stay confident in her business?",
+      "category": 4,
+      "golden_answer": "By reminding herself of her successes and progress, having a support system, and focusing on why she started",
+      "generated_answer": "fashion, entrepreneurship",
+      "llm_judgments": {
+        "judgment_1": false
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "What kind of professional experience did Gina get accepted for on May 23, 2023?",
+      "category": 4,
+      "golden_answer": "fashion internship",
+      "generated_answer": "记忆中没有相关信息。",
+      "llm_judgments": {
+        "judgment_1": false
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "Where is Gina's fashion internship?",
+      "category": 4,
+      "golden_answer": "fashion department of an international company",
+      "generated_answer": "international company",
+      "llm_judgments": {
+        "judgment_1": false
+      },
+      "nlp_metrics": {
+        "f1": 0.5,
+        "bleu1": 1.0
+      }
+    },
+    {
+      "question": "What book is Jon currently reading?",
+      "category": 4,
+      "golden_answer": "The Lean Startup",
+      "generated_answer": "记忆中没有提到Jon正在阅读的书籍信息。",
+      "llm_judgments": {
+        "judgment_1": false
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "What is Jon offering to the dancers at his dance studio?",
+      "category": 4,
+      "golden_answer": "One-on-one mentoring and training",
+      "generated_answer": "contemporary, hip-hop",
+      "llm_judgments": {
+        "judgment_1": false
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "How does Jon use the clipboard with a notepad attached to it?",
+      "category": 4,
+      "golden_answer": "To set goals, track achievements, and find areas for improvement",
+      "generated_answer": "记忆中没有相关信息",
+      "llm_judgments": {
+        "judgment_1": false
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "What does Jon tell Gina he won't do?",
+      "category": 4,
+      "golden_answer": "quit",
+      "generated_answer": "give up on his dreams",
+      "llm_judgments": {
+        "judgment_1": true
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "What did Jon take a trip to Rome for?",
+      "category": 4,
+      "golden_answer": "To clear his mind",
+      "generated_answer": "记忆中没有提到Jon去罗马的原因。",
+      "llm_judgments": {
+        "judgment_1": false
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "What is Jon working on opening?",
+      "category": 4,
+      "golden_answer": "a dance studio",
+      "generated_answer": "dance studio",
+      "llm_judgments": {
+        "judgment_1": true
+      },
+      "nlp_metrics": {
+        "f1": 0.8,
+        "bleu1": 1.0
+      }
+    },
+    {
+      "question": "How does Gina describe the studio that Jon has opened?",
+      "category": 4,
+      "golden_answer": "amazing",
+      "generated_answer": "记忆中没有提到Gina描述Jon已经开设的舞蹈工作室。",
+      "llm_judgments": {
+        "judgment_1": false
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "How does Jon feel about the opening night of his dance studio?",
+      "category": 4,
+      "golden_answer": "excited",
+      "generated_answer": "记忆中没有提到Jon对舞蹈工作室开幕夜的感受。",
+      "llm_judgments": {
+        "judgment_1": false
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "How does Gina describe the feeling that dance brings?",
+      "category": 4,
+      "golden_answer": "magical",
+      "generated_answer": "stress relief, expressive nature of contemporary dance",
+      "llm_judgments": {
+        "judgment_1": false
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "What does Jon plan to do at the grand opening of his dance studio?",
+      "category": 4,
+      "golden_answer": "savor all the good vibes",
+      "generated_answer": "记忆中没有提到Jon在舞蹈工作室开业典礼上的具体计划。",
+      "llm_judgments": {
+        "judgment_1": false
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "What does Gina say to Jon about the grand opening?",
+      "category": 4,
+      "golden_answer": "Let's live it up and make some great memories",
+      "generated_answer": "记忆中没有提到Gina对Jon的grand opening的具体评论。",
+      "llm_judgments": {
+        "judgment_1": false
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "What is the general sentiment about the upcoming grand opening?",
+      "category": 4,
+      "golden_answer": "excitement",
+      "generated_answer": "excitement, pride, anticipation",
+      "llm_judgments": {
+        "judgment_1": true
+      },
+      "nlp_metrics": {
+        "f1": 0.5,
+        "bleu1": 0.3333333333333333
+      }
+    },
+    {
+      "question": "What did Gina make a limited edition line of?",
+      "category": 4,
+      "golden_answer": "Hoodies",
+      "generated_answer": "记忆中没有相关信息。",
+      "llm_judgments": {
+        "judgment_1": false
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "According to Gina, what makes Jon a perfect mentor and guide?",
+      "category": 4,
+      "golden_answer": "His positivity and determination",
+      "generated_answer": "记忆中没有相关信息。",
+      "llm_judgments": {
+        "judgment_1": false
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "What temporary job did Jon take to cover expenses?",
+      "category": 5,
+      "golden_answer": "",
+      "generated_answer": "Not mentioned",
+      "llm_judgments": {
+        "judgment_1": true
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "What plans does Jon have after receiving advice at the networking event?",
+      "category": 4,
+      "golden_answer": "Sprucing up his business plan, tweaking his pitch to investors, and working on an online platform.",
+      "generated_answer": "记忆中没有提到Jon在networking event上收到建议或相关计划的信息。",
+      "llm_judgments": {
+        "judgment_1": false
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "What offer does Gina make to Jon regarding social media?",
+      "category": 4,
+      "golden_answer": "Helping with making content and managing his social media accounts.",
+      "generated_answer": "记忆中没有相关信息。",
+      "llm_judgments": {
+        "judgment_1": false
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "What is Jon's favorite style of painting?",
+      "category": 5,
+      "golden_answer": "",
+      "generated_answer": "Not mentioned in the conversation.",
+      "llm_judgments": {
+        "judgment_1": true
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "What was Jon's favorite dancing memory?",
+      "category": 5,
+      "golden_answer": "",
+      "generated_answer": "Not mentioned in the conversation.",
+      "llm_judgments": {
+        "judgment_1": true
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "What kind of dance piece did Jon's team perform to win first place?",
+      "category": 5,
+      "golden_answer": "",
+      "generated_answer": "(a) Not mentioned in the conversation",
+      "llm_judgments": {
+        "judgment_1": true
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "What is Gina's attitude towards participating in the dance festival?",
+      "category": 5,
+      "golden_answer": "",
+      "generated_answer": "(a) Glad",
+      "llm_judgments": {
+        "judgment_1": false
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "What kind of flooring is Gina looking for in her dance studio?",
+      "category": 5,
+      "golden_answer": "",
+      "generated_answer": "Not mentioned in the conversation.",
+      "llm_judgments": {
+        "judgment_1": true
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "What did Jon find for his clothing store on 1 February, 2023?",
+      "category": 5,
+      "golden_answer": "",
+      "generated_answer": "(a) Not mentioned in the conversation",
+      "llm_judgments": {
+        "judgment_1": true
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "What did Jon design for his store?",
+      "category": 5,
+      "golden_answer": "",
+      "generated_answer": "Not mentioned in the conversation.",
+      "llm_judgments": {
+        "judgment_1": true
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "What did Jon want his customers to feel in her store?",
+      "category": 5,
+      "golden_answer": "",
+      "generated_answer": "(a) Not mentioned in the conversation",
+      "llm_judgments": {
+        "judgment_1": true
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "What made Jon choose the furniture and decor for his store?",
+      "category": 5,
+      "golden_answer": "",
+      "generated_answer": "(a) Not mentioned in the conversation",
+      "llm_judgments": {
+        "judgment_1": true
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "How is Jon's store doing?",
+      "category": 5,
+      "golden_answer": "",
+      "generated_answer": "(b) Not mentioned in the conversation.",
+      "llm_judgments": {
+        "judgment_1": true
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "What does Jon's tattoo symbolize?",
+      "category": 5,
+      "golden_answer": "",
+      "generated_answer": "(a) Not mentioned in the conversation",
+      "llm_judgments": {
+        "judgment_1": true
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "Why did Gina shut down her bank account?",
+      "category": 5,
+      "golden_answer": "",
+      "generated_answer": "Not mentioned in the conversation.",
+      "llm_judgments": {
+        "judgment_1": true
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "Why did Jon combine his clothing business with dance?",
+      "category": 5,
+      "golden_answer": "",
+      "generated_answer": "(a) Not mentioned in the conversation",
+      "llm_judgments": {
+        "judgment_1": true
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "What did Gina receive from a dance contest?",
+      "category": 5,
+      "golden_answer": "",
+      "generated_answer": "a trophy",
+      "llm_judgments": {
+        "judgment_1": false
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "What kind of professional experience did Jon get accepted for on May 23, 2023?",
+      "category": 5,
+      "golden_answer": "",
+      "generated_answer": "Not mentioned in the conversation",
+      "llm_judgments": {
+        "judgment_1": true
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "Where is Gina's HR internship?",
+      "category": 5,
+      "golden_answer": "",
+      "generated_answer": "Not mentioned in the conversation.",
+      "llm_judgments": {
+        "judgment_1": true
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "Where is Jon's fashion internship?",
+      "category": 5,
+      "golden_answer": "",
+      "generated_answer": "Not mentioned in the conversation.",
+      "llm_judgments": {
+        "judgment_1": true
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "What book is Gina currently reading?",
+      "category": 5,
+      "golden_answer": "",
+      "generated_answer": "(a) Not mentioned in the conversation",
+      "llm_judgments": {
+        "judgment_1": true
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "How does Gina use the clipboard with a notepad attached to it?",
+      "category": 5,
+      "golden_answer": "",
+      "generated_answer": "Not mentioned in the conversation.",
+      "llm_judgments": {
+        "judgment_1": true
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "What did Jon take a trip to Barcelona for?",
+      "category": 5,
+      "golden_answer": "",
+      "generated_answer": "(a) Not mentioned in the conversation",
+      "llm_judgments": {
+        "judgment_1": true
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "What did Jon make a limited edition line of?",
+      "category": 5,
+      "golden_answer": "",
+      "generated_answer": "Not mentioned in the conversation",
+      "llm_judgments": {
+        "judgment_1": true
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "What temporary job did Gina take to cover expenses?",
+      "category": 5,
+      "golden_answer": "",
+      "generated_answer": "Not mentioned in the conversation",
+      "llm_judgments": {
+        "judgment_1": true
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    },
+    {
+      "question": "What plans does Gina have after receiving advice at the networking event?",
+      "category": 5,
+      "golden_answer": "",
+      "generated_answer": "Not mentioned in the conversation.",
+      "llm_judgments": {
+        "judgment_1": true
+      },
+      "nlp_metrics": {
+        "f1": 0.0,
+        "bleu1": 0.0
+      }
+    }
+  ]
+}

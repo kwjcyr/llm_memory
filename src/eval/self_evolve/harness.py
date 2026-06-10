@@ -18,7 +18,7 @@ def load_optimizer():
     """动态加载优化器模块"""
     spec = importlib.util.spec_from_file_location(
         "simple_prompt_optimizer",
-        "/Users/kwjcyr/data/llm_memory/src/memory/effective_memory/simple_prompt_optimizer.py"
+        "/Users/kwjcyr/data/llm_memory/src/eval/self_evolve/simple_prompt_optimizer.py"
     )
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)

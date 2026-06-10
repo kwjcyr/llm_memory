@@ -3,9 +3,12 @@
 从 effective_memories.txt 中检索相关信息，调用大模型回答问题
 """
 import json
+import os
+import sys
 from typing import List, Dict, Any
 
-import requests
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), 'src'))
+from call_llm.call_llm_chat import call_llm as _call_llm_unified
 
 
 def load_effective_memories(file_path: str) -> List[Dict[str, Any]]:
@@ -101,14 +104,13 @@ def search_relevant_memories(question: str, memories: List[Dict[str, Any]], top_
     return [memory for score, memory in scored_memories[:top_k]]
 
 
-def call_llm_for_qa(question: str, relevant_memories: List[Dict[str, Any]], friday_app_id: str) -> str:
+def call_llm_for_qa(question: str, relevant_memories: List[Dict[str, Any]]) -> str:
     """
     调用 LLM 基于检索到的记忆回答问题
 
     Args:
         question: 用户问题
         relevant_memories: 相关记忆列表
-        friday_app_id: Friday App ID
 
     Returns:
         LLM 生成的答案
@@ -146,43 +148,14 @@ def call_llm_for_qa(question: str, relevant_memories: List[Dict[str, Any]], frid
 
 答案："""
 
-    # 调用 API
-    url = "https://aigc.sankuai.com/v1/openai/native/chat/completions"
-    headers = {'Authorization': f'Bearer {friday_app_id}'}
-
-    payload = {
-        "model": "LongCat-Flash-Chat-Eco",
-        "messages": [
-            {
-                "role": "user",
-                "content": prompt
-            }
-        ],
-        "temperature": 0.1,
-        "top_p": 1,
-        "max_tokens": 1024,
-        "stream": False
-    }
-
     try:
-        response = requests.post(url, headers=headers, json=payload)
-        response.raise_for_status()
-
-        result = response.json()
-
-        if 'choices' in result and len(result['choices']) > 0:
-            answer = result['choices'][0]['message']['content']
-            return answer
-        else:
-            return f"API 响应异常：{result}"
-
+        return _call_llm_unified(prompt, temperature=0.1, max_tokens=1024)
     except Exception as e:
         return f"调用 LLM 失败：{e}"
 
 
 def answer_question(question: str,
                    file_path: str = '/Users/kwjcyr/data/llm_memory/data/effective_memories.txt',
-                   friday_app_id: str = '1980915965710716958',
                    top_k: int = 5) -> str:
     """
     主函数：基于 effective memory 回答问题
@@ -190,7 +163,6 @@ def answer_question(question: str,
     Args:
         question: 用户问题
         file_path: effective memories 文件路径
-        friday_app_id: Friday App ID
         top_k: 检索的相关记忆数量
 
     Returns:
@@ -219,7 +191,7 @@ def answer_question(question: str,
 
     # 3. 调用 LLM 生成答案
     print(f"\n3. 调用 LLM 生成答案...")
-    answer = call_llm_for_qa(question, relevant_memories, friday_app_id)
+    answer = call_llm_for_qa(question, relevant_memories)
 
     print("\n" + "=" * 80)
     print(f"答案：{answer}")
