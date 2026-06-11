@@ -133,7 +133,7 @@ export default function App() {
     dispatch({ type: 'LOADED', sessions: [], effectives: [], longtermemories: [], links: EMPTY_LINKS });
     Promise.all([
       fetchSessions(userId, order),
-      fetchEffectives(order),  // TODO: 如果未来按 user 过滤 effective，需要传 userId
+      fetchEffectives(userId, order),  // ✅ 传 userId，按 user 加载
       fetchLongtermemories(userId, order),
       fetchLinks(userId),
     ]).then(([sessions, effectives, longtermemories, links]) => {

@@ -18,8 +18,10 @@ export async function fetchSessions(userId = '', order: 'asc' | 'desc' = 'asc'):
   return res.data;
 }
 
-export async function fetchEffectives(order: 'asc' | 'desc' = 'asc'): Promise<EffectiveMemory[]> {
-  const res = await get<{ data: EffectiveMemory[] }>(`/effectives?order=${order}`);
+export async function fetchEffectives(userId = '', order: 'asc' | 'desc' = 'asc'): Promise<EffectiveMemory[]> {
+  const p = new URLSearchParams({ order });
+  if (userId) p.set('user_id', userId);
+  const res = await get<{ data: EffectiveMemory[] }>(`/effectives?${p}`);
   return res.data;
 }
 

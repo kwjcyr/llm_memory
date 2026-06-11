@@ -120,6 +120,7 @@ def get_sessions(user_id: str = "", limit: int = 500, order: str = "asc"):
 def get_effectives(user_id: str = "", order: str = "asc"):
     """Effective Memory 列表（按 user_id 加载对应 group 的数据）"""
     _, effective_file = _resolve_user_files(user_id)
+    print(f"[DEBUG] get_effectives: user_id={user_id}, effective_file={effective_file}")
     rows = load_jsonl(effective_file)
     for r in rows:
         if 'original_text' in r:
@@ -159,7 +160,10 @@ def get_links(user_id: str = "caroline"):
         (source_effective_ids 里存的是 session memory_id 列表，
          通过比对 effective.source_memory_ids 做匹配)
     """
-    effectives = load_jsonl(EFFECTIVE_TXT)
+    _, effective_file = _resolve_user_files(user_id)
+    session_file, _ = _resolve_user_files(user_id)
+    effectives = load_jsonl(effective_file)
+    sessions_map = {str(r['memory_id']): r for r in load_jsonl(session_file)}
     db = LongTermMemoryDatabase(LONGTERM_DB)
     longtermemories = db.get_memories_by_user(user_id)
 
@@ -221,56 +225,89 @@ def delete_longterm(memory_id: str):
 # ─── eval routes ──────────────────────────────────────────────────────────────
 
 @app.get("/api/eval/run")
-def run_eval(question: str, top_k: int = 5):
+def run_eval(question: str, user_id: str = "", top_k: int = 5):
     """
-    对单条问题执行完整 QA 流程：
-    1. 从 effective_memories 检索 top_k 条相关记忆（关键词匹配）
-    2. 调用 LLM 基于检索到的记忆回答问题
-    3. 返回 predicted answer + 检索到的证据链
+    对单条问题执行完整 QA 流程（三层记忆降级策略）：
+    1. Long-term Memory（高度提炼的知识）
+    2. Effective Memory（对话摘要）
+    3. Session Memory 原文（精确时间信息）
+    4. 调用 LLM 基于三层证据回答问题
+    5. 返回 predicted answer + 三层证据链
     """
-    from src.memory.effective_memory.qa_from_effective_memory import call_llm_for_qa as _qa_call
+    from src.memory.qa.three_layer_qa import ThreeLayerQA
 
-    effectives = load_jsonl(EFFECTIVE_TXT)
-    sessions_map = {str(r['memory_id']): r for r in load_jsonl(CAROLINE_TXT)}
+    # 推导 group 名称
+    group = None
+    if user_id:
+        for gid, (sess_f, eff_f) in USER_FILE_MAP.items():
+            if gid == user_id:
+                # 反向查找 group
+                for gname in ['group_0_caroline', 'group_1_gina', 'group_0_melanie', 'group_1_jon']:
+                    if user_id in gname:
+                        group = gname
+                        break
+                break
 
-    q_words = set(question.lower().split())
-    scored = []
-    for eff in effectives:
-        score = 0
-        if any(w in eff.get('topic', '').lower() for w in q_words): score += 3
-        if any(w in eff.get('summary', '').lower() for w in q_words): score += 2
-        facts_text = ' '.join(eff.get('facts', []) or []).lower()
-        if any(w in facts_text for w in q_words): score += 2
-        tags_text = ' '.join(eff.get('tags', []) or []).lower()
-        if any(w in tags_text for w in q_words): score += 1
-        if score > 0: scored.append((score, eff))
+    # 初始化三层 QA 系统
+    qa = ThreeLayerQA(group=group, user_id=user_id)
 
-    scored.sort(key=lambda x: x[0], reverse=True)
-    top_effs = [e for _, e in scored[:top_k]]
+    # 执行三层检索和回答
+    result = qa.answer(
+        question,
+        longterm_k=top_k,
+        effective_k=top_k,
+        session_k=top_k * 2,
+        verbose=False
+    )
 
-    # 构建证据链
-    chain = []
-    for eff in top_effs:
-        src_ids = [str(s) for s in eff.get('source_memory_ids', [])]
-        src_sessions = [sessions_map[sid] for sid in src_ids if sid in sessions_map]
-        chain.append({
-            'effective_id': eff.get('effective_id', ''),
-            'topic': eff.get('topic', ''),
-            'summary': eff.get('summary', ''),
-            'facts': eff.get('facts', []),
-            'time_range': eff.get('time_range', {}),
-            'retrieval_score': scored[top_effs.index(eff) if eff in top_effs else 0][0],
-            'source_sessions': src_sessions,
-        })
-
-    # 调用 LLM 回答
-    predicted = _qa_call(question, top_effs)
+    # 构建三层证据链返回给前端
+    chain = {
+        'longterm': [
+            {
+                'layer': 'longterm',
+                'content': item.content,
+                'topic': item.content,
+                'summary': item.details.get('summary', ''),
+                'facts': item.details.get('facts', []),
+                'timestamp': item.timestamp,
+                'source_id': item.source_id,
+                'score': item.score,
+            }
+            for item in result.evidence.get('longterm', [])
+        ],
+        'effective': [
+            {
+                'layer': 'effective',
+                'content': item.content,
+                'topic': item.content,
+                'summary': item.details.get('summary', ''),
+                'facts': item.details.get('facts', []),
+                'timestamp': item.timestamp,
+                'source_id': item.source_id,
+                'score': item.score,
+            }
+            for item in result.evidence.get('effective', [])
+        ],
+        'session': [
+            {
+                'layer': 'session',
+                'content': item.content,
+                'full_text': item.details.get('full_text', '')[:500],
+                'timestamp': item.timestamp,
+                'speaker': item.details.get('speaker', ''),
+                'source_id': item.source_id,
+                'score': item.score,
+            }
+            for item in result.evidence.get('session', [])
+        ]
+    }
 
     return {
         'question': question,
-        'predicted': predicted,
-        'retrieved_chain': chain,
-        'total_effective': len(effectives),
+        'predicted': result.answer,
+        'confidence': result.confidence,
+        'three_layer_chain': chain,
+        'retrieval_stats': result.retrieval_stats,
     }
 
 
@@ -368,17 +405,19 @@ def get_eval_report():
 
 
 @app.get("/api/eval/answer")
-def get_eval_answer(question: str, top_k: int = 5):
+def get_eval_answer(question: str, user_id: str = "", top_k: int = 5):
     """
     对单条问题用 effective_memories 做检索+评分，返回证据链。
     证据链包括：检索到的 effective memory 列表 + 每条 memory 的 source_memory_ids
     对应的 session 原文。
     """
-    if not os.path.exists(EFFECTIVE_TXT):
-        raise HTTPException(status_code=404, detail="effective_memories.txt not found")
+    _, effective_file = _resolve_user_files(user_id)
+    session_file, _ = _resolve_user_files(user_id)
+    if not os.path.exists(effective_file):
+        raise HTTPException(status_code=404, detail=f"effective file not found: {effective_file}")
 
-    effectives = load_jsonl(EFFECTIVE_TXT)
-    sessions_map = {str(r['memory_id']): r for r in load_jsonl(CAROLINE_TXT)}
+    effectives = load_jsonl(effective_file)
+    sessions_map = {str(r['memory_id']): r for r in load_jsonl(session_file)}
 
     q_lower = question.lower()
     q_words = set(q_lower.split())

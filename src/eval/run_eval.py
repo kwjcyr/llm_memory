@@ -1,19 +1,19 @@
 """
-Eval 评测脚本
-基于 Effective Memory 对 LocoMo QA 数据集进行评测，生成 JSON 结果文件
+Eval 评测脚本（三层记忆版本）
+基于 Long-term / Effective / Session 三层记忆对 LocoMo QA 数据集进行评测
 
 输出格式完全对齐 memory_evaluation 项目：
-  - locomo_responses.json: 每道题的 Q/A/检索记忆
+  - locomo_responses.json: 每道题的 Q/A/检索记忆（含三层证据链）
   - locomo_judged.json:   每道题 + LLM Judge 评分 + F1/BLEU 指标
   - locomo_grades.json:   总体统计 + 分类统计
 
 用法：
-    python src/eval/run_eval.py --group group_0_caroline
+    python src/eval/run_eval.py --group group_1_gina
     python src/eval/run_eval.py --group group_1_gina --top_k 10
 
 输出：
     data/groups/{group}/eval/
-      ├── locomo_responses.json   # 原始回答（含检索记忆）
+      ├── locomo_responses.json   # 原始回答（含三层证据链）
       ├── locomo_judged.json     # 评分结果（LLM Judge + NLP指标）
       └── locomo_grades.json     # 汇总统计
 """
@@ -29,11 +29,8 @@ from typing import Dict, List, Any, Tuple, Optional
 # 添加项目根目录到路径
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), 'src'))
 
-from memory.effective_memory.qa_from_effective_memory import (
-    load_effective_memories,
-    search_relevant_memories,
-    call_llm_for_qa,
-)
+# 导入三层 QA 系统
+from memory.qa.three_layer_qa import ThreeLayerQA
 from call_llm.call_llm_chat import call_llm as _call_llm_unified
 
 
@@ -293,13 +290,13 @@ def resolve_group_paths(group_name: str) -> Dict[str, str]:
 
 def process_single_question(
     qa_item: Dict,
-    memories: List[Dict],
+    three_layer_qa: ThreeLayerQA,
     top_k: int,
     session_map: Dict[str, Dict],
 ) -> Dict[str, Any]:
     """
-    处理单道题：检索 + LLM 回答
-    输出格式与 memory_evaluation/locomo_response_effective.py 一致
+    处理单道题：三层检索 + LLM 回答
+    输出格式与 memory_evaluation/locomo_response_effective.py 一致（但使用三层记忆）
     """
     question = qa_item.get('question', '')
     category = qa_item.get('category', 0)
@@ -315,34 +312,48 @@ def process_single_question(
     else:
         question_enhanced = question
 
-    # 1. 检索相关记忆
-    relevant_memories = search_relevant_memories(question_enhanced, memories, top_k=top_k)
+    # ⭐ 使用三层 QA 系统回答问题
+    result_qa = three_layer_qa.answer(
+        question_enhanced,
+        longterm_k=top_k,
+        effective_k=top_k,
+        session_k=top_k * 2,
+        verbose=False
+    )
 
-    # 2. 构建记忆上下文（格式化字符串列表，用于保存到 responses）
+    generated_answer = result_qa.answer
+
+    # 构建三层证据链（用于保存到 responses）
     speaker_a_memories = []
-    for mem in relevant_memories:
-        parts = []
-        if mem.get('topic'):
-            parts.append(f"Topic: {mem['topic']}")
-        if mem.get('summary'):
-            parts.append(f"Summary: {mem['summary']}")
-        if mem.get('tags'):
-            tags = mem['tags']
-            if isinstance(tags, list):
-                parts.append(f"Tags: {', '.join(tags)}")
-            else:
-                parts.append(f"Tags: {tags}")
-        if mem.get('time_range'):
-            tr = mem['time_range']
-            if isinstance(tr, dict):
-                parts.append(f"Time: {tr.get('start', '')} ~ {tr.get('end', '')}")
-            else:
-                parts.append(f"Time: {tr}")
 
-        speaker_a_memories.append(" | ".join(parts) if parts else "")
+    # Layer 1: Long-term Memory
+    for item in result_qa.evidence.get('longterm', []):
+        parts = [f"[Long-term] Topic: {item.content}"]
+        if item.details.get('summary'):
+            parts.append(f"Summary: {item.details['summary'][:100]}")
+        if item.timestamp:
+            parts.append(f"Time: {item.timestamp}")
+        speaker_a_memories.append(" | ".join(parts))
 
-    # 3. 调用 LLM 回答
-    generated_answer = call_llm_for_qa(question_enhanced, relevant_memories)
+    # Layer 2: Effective Memory
+    for item in result_qa.evidence.get('effective', []):
+        parts = [f"[Effective] Topic: {item.content}"]
+        if item.details.get('summary'):
+            parts.append(f"Summary: {item.details['summary'][:100]}")
+        if item.timestamp:
+            parts.append(f"Time: {item.timestamp}")
+        speaker_a_memories.append(" | ".join(parts))
+
+    # Layer 3: Session Memory
+    for item in result_qa.evidence.get('session', [])[:5]:  # 限制数量
+        parts = [f"[Session]"]
+        if item.details.get('speaker'):
+            parts.append(f"Speaker: {item.details['speaker']}")
+        if item.timestamp:
+            parts.append(f"Time: {item.timestamp}")
+        text = item.details.get('full_text', item.content)[:150]
+        parts.append(f"Text: {text}...")
+        speaker_a_memories.append(" | ".join(parts))
 
     # 构建结果（与 memory_evaluation 格式一致）
     golden_answer = '' if category == 5 else str(qa_item.get('answer', ''))
@@ -353,8 +364,10 @@ def process_single_question(
         "golden_answer": golden_answer,
         "generated_answer": generated_answer,
         "tokens": 0,  # 暂不统计 token 用量
-        "speaker_a_memories": speaker_a_memories,
+        "speaker_a_memories": speaker_a_memories,  # 三层证据链
         "speaker_b_memories": [],  # 当前只处理单用户记忆
+        "confidence": result_qa.confidence,  # 新增：置信度
+        "retrieval_stats": result_qa.retrieval_stats,  # 新增：检索统计
     }
 
     return result
@@ -546,19 +559,19 @@ def run_eval(
     # 2. 加载数据
     print(f"\n📦 加载数据...")
 
-    # 加载 Effective Memories
-    if not os.path.exists(paths['effective_file']):
-        raise FileNotFoundError(
-            f"Effective Memory 文件不存在: {paths['effective_file']}\n"
-            f"请先运行: python src/memory/effective_memory/extract_from_session.py --group {group_name}"
-        )
-    memories = load_effective_memories(paths['effective_file'])
-    print(f"   ✅ Effective Memories: {len(memories)} 条")
+    # ⭐ 初始化三层 QA 系统
+    three_layer_qa = ThreeLayerQA(group=group_name)
+    print(f"   ✅ 三层 QA 系统已初始化 (User: {three_layer_qa.user_id})")
 
     # 加载 Session Memories（用于证据链）
     session_map = {}
-    if os.path.exists(paths['session_file']):
-        with open(paths['session_file'], 'r', encoding='utf-8') as f:
+    session_file_jsonl = os.path.join(
+        os.path.dirname(paths['effective_file']),
+        'session',
+        'memories.jsonl'
+    )
+    if os.path.exists(session_file_jsonl):
+        with open(session_file_jsonl, 'r', encoding='utf-8') as f:
             for line in f:
                 try:
                     sm = json.loads(line.strip())
@@ -608,7 +621,7 @@ def run_eval(
 
         result = process_single_question(
             qa_item=qa_item,
-            memories=memories,
+            three_layer_qa=three_layer_qa,
             top_k=top_k,
             session_map=session_map,
         )
